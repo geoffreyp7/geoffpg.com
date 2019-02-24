@@ -1,3 +1,5 @@
+import newyShipGuideFeatureImage from '../assets/project-gifs/nsg.JPG'
+
 export default {
   projects: [
     {
@@ -8,10 +10,10 @@ export default {
         'EC2',
         'S3',
       ],
-      featureImage: '',
+      featureImage: newyShipGuideFeatureImage,
       status: 'beta',
-      url: 'www.newyshipguide.com',
-      github: '',
+      url: 'http://www.newyshipguide.com',
+      github: 'https://github.com/geoffreyp7/shipwatch',
     },
     {
       title: 'The Worm',

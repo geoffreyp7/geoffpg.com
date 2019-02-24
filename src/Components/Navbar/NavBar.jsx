@@ -1,44 +1,123 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import githubLogo64px from '../../assets/github-logo-64px.png';
+import linkedinLogo64px from '../../assets/linkedin-logo-64px.png';
+import globalStyles from '../../assets/globalStyles'
+import { PropTypes } from 'prop-types';
 
 export default function NavBar () {
 
-    const NavBarContainer = styled.nav`
-        display: flex;
-        background-color: white;
-        height: 3rem;
-    `;
+  const [activeSelection, setActiveSelection] = useState(1);
 
-    const NavBarArea = styled.div`
-        flex-basis: 80%;
-        display: flex;
-        margin: auto;
-        height: 2.5rem;
-    `;
+  const NavBarContainer = styled.nav`
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 0px 10px ${globalStyles.boldTextBlack};
+    position: fixed;
+    width: 100%;
+  `;
 
-    const LogoArea = styled.div`
-        background-color: orange;
-        flex-basis: 20%;
-    `;
+  const LogoText = styled.h2`
+    font-family: 'Yu Gothic';
+    font-size: 1.5rem;
+    margin: 0px;
+    color: ${globalStyles.boldTextBlack};
+  `;
+  
+  const NavBarArea = styled.div`
+    flex-basis: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+  `;
+  
+  const NavBarTopSection = styled.div`
+    flex-basis: 100%;
+    display: flex;
+    padding-top: 3px;
+  `;
+  
+  const NavBarBottomSection = styled.div`
+    flex-basis: 100%;
+    display: flex;
+    height: 2.5rem;
+    border-top: 1px ${globalStyles.niceBlue} solid;
+  `;
 
-    const LinkArea = styled.div`
-        background-color: blue;
-        flex-basis: 80%;
-    `;
+  const InternalLinkContainer = styled.div`
+    flex-basis: 33.333%;
+    display: flex;
+    height: 100%;
+    background-color: ${props => props.selected ? globalStyles.niceBlue : 'white'};
+  `;
+  
+  const ExternalLinkContainer = styled.div`
+    flex-basis: 33.333%;
+    display: flex;
+    align-items: center;
+  `;
 
-    return (
-        <NavBarContainer>
-            <NavBarArea>
-                <LogoArea>
-                    GPG
-                </LogoArea>
-                <LinkArea>
-                    <Link to='/'>about</Link>
-                    <Link to='/projects'>projects</Link>
-                    <Link to='/contact'>contact</Link>
-                </LinkArea>
-            </NavBarArea>
-        </NavBarContainer>
+  const ExternalLink = styled.a`
+    margin: auto;
+  `;
+
+  const ExternalLinkIcon = styled.img`
+    max-height: 2rem;
+    opacity: 0.64;
+  `;
+  
+  const LogoContainer = styled.div`
+    flex-basis: 33.333%;
+    text-align: center;
+  `;
+  
+  const LinksContainer = styled.div`
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+  `;
+
+  const InternalLink = styled(Link)`
+    text-decoration: none;
+    margin: auto;
+    font-size: 1.1rem;
+    color: ${props => props.selected ? globalStyles.boldTextBlack : globalStyles.lightTextBlack};
+    font-weight: ${props => props.selected ? 'bold' : 'normal'}
+  `;
+  
+  return (
+    <NavBarContainer>
+      <NavBarArea>
+        <NavBarTopSection>
+          <ExternalLinkContainer>
+          <ExternalLink href="https://github.com/geoffreyp7" target="_blank">
+            <ExternalLinkIcon src={githubLogo64px} alt="github logo" />
+          </ExternalLink>
+          </ExternalLinkContainer>
+          <LogoContainer>
+            <LogoText>Geoff PG</LogoText>
+          </LogoContainer>
+          <ExternalLinkContainer>
+          <ExternalLink href="https://www.linkedin.com/in/geoffrey-parry-grass-35294aa4/" target="_blank">
+            <ExternalLinkIcon src={linkedinLogo64px} alt="linkedin logo" />
+          </ExternalLink>
+          </ExternalLinkContainer>
+        </NavBarTopSection>
+        <NavBarBottomSection>
+          <LinksContainer>
+            <InternalLinkContainer selected={activeSelection === 0}>
+              <InternalLink to='/' selected={activeSelection === 0} onClick={() => setActiveSelection(0)}>About</InternalLink>
+            </InternalLinkContainer>
+            <InternalLinkContainer selected={activeSelection === 1}>
+              <InternalLink to='/projects' selected={activeSelection === 1} onClick={() => setActiveSelection(1)}>Projects</InternalLink>
+            </InternalLinkContainer>
+            <InternalLinkContainer selected={activeSelection === 2}>
+              <InternalLink to='/contact' selected={activeSelection === 2} onClick={() => setActiveSelection(2)}>Contact</InternalLink>
+            </InternalLinkContainer>
+          </LinksContainer>
+        </NavBarBottomSection>
+      </NavBarArea>
+    </NavBarContainer>
     );
-}
+  }
