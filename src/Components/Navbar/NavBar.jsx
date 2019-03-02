@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import githubLogo64px from '../../assets/github-logo-64px.png';
 import linkedinLogo64px from '../../assets/linkedin-logo-64px.png';
 import globalStyles from '../../assets/globalStyles'
 import { PropTypes } from 'prop-types';
 
-export default function NavBar () {
+export default function NavBar (props) {
 
   const [activeSelection, setActiveSelection] = useState(1);
 
@@ -16,6 +16,7 @@ export default function NavBar () {
     box-shadow: 0px 0px 10px ${globalStyles.boldTextBlack};
     position: fixed;
     width: 100%;
+    z-index: 100;
   `;
 
   const LogoText = styled.h2`
@@ -78,7 +79,7 @@ export default function NavBar () {
     align-items: center;
   `;
 
-  const InternalLink = styled(Link)`
+  const InternalLink = styled(NavLink)`
     text-decoration: none;
     margin: auto;
     font-size: 1.1rem;
@@ -91,15 +92,23 @@ export default function NavBar () {
       <NavBarArea>
         <NavBarTopSection>
           <ExternalLinkContainer>
-          <ExternalLink href="https://github.com/geoffreyp7" target="_blank">
+          <ExternalLink
+          href="https://github.com/geoffreyp7"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
             <ExternalLinkIcon src={githubLogo64px} alt="github logo" />
           </ExternalLink>
           </ExternalLinkContainer>
           <LogoContainer>
-            <LogoText>Geoff PG</LogoText>
+            <LogoText>GPG</LogoText>
           </LogoContainer>
           <ExternalLinkContainer>
-          <ExternalLink href="https://www.linkedin.com/in/geoffrey-parry-grass-35294aa4/" target="_blank">
+          <ExternalLink
+          href="https://www.linkedin.com/in/geoffrey-parry-grass-35294aa4/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >
             <ExternalLinkIcon src={linkedinLogo64px} alt="linkedin logo" />
           </ExternalLink>
           </ExternalLinkContainer>
@@ -107,13 +116,43 @@ export default function NavBar () {
         <NavBarBottomSection>
           <LinksContainer>
             <InternalLinkContainer selected={activeSelection === 0}>
-              <InternalLink to='/' selected={activeSelection === 0} onClick={() => setActiveSelection(0)}>About</InternalLink>
+              <InternalLink 
+                to='/'
+                selected={activeSelection === 0}
+                isActive={(match) => {
+                  if (match) {
+                   setActiveSelection(0);
+                   return(true);
+                  }}}
+                >
+                  About
+              </InternalLink>
             </InternalLinkContainer>
             <InternalLinkContainer selected={activeSelection === 1}>
-              <InternalLink to='/projects' selected={activeSelection === 1} onClick={() => setActiveSelection(1)}>Projects</InternalLink>
+              <InternalLink
+                to='/projects'
+                selected={activeSelection === 1}
+                isActive={(match) => {
+                  if (match) {
+                   setActiveSelection(1);
+                   return(true);
+                  }}}
+                >
+                  Projects
+                </InternalLink>
             </InternalLinkContainer>
             <InternalLinkContainer selected={activeSelection === 2}>
-              <InternalLink to='/contact' selected={activeSelection === 2} onClick={() => setActiveSelection(2)}>Contact</InternalLink>
+              <InternalLink
+                to='/contact'
+                selected={activeSelection === 2}
+                isActive={(match) => {
+                  if (match) {
+                   setActiveSelection(2);
+                   return(true);
+                  }}}
+                >
+                  Contact
+              </InternalLink>
             </InternalLinkContainer>
           </LinksContainer>
         </NavBarBottomSection>

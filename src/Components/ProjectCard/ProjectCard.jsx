@@ -4,6 +4,7 @@ import globalStyles from '../../assets/globalStyles'
 import PropTypes from 'prop-types';
 import linkIcon from '../../assets/link-icon-64px.png'
 import githubIcon from '../../assets/github-logo-64px.png'
+import './ProjectCard.css';
 
 export default function Projectcard ({ project }) {
 
@@ -17,7 +18,7 @@ export default function Projectcard ({ project }) {
     flex-wrap: wrap;
     background-color: white;
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       margin: 100px 150px;
       padding: 50px 80px;
     }
@@ -30,15 +31,16 @@ export default function Projectcard ({ project }) {
   const CardLeftCol = styled.div`
     flex-basis: 100%;
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       flex-basis: 50%;
     }
   `;
 
   const CardRightCol = styled.div`
     flex-basis: 100%;
+    display: flex;
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       flex-basis: 50%;
     }
   `;
@@ -51,7 +53,7 @@ export default function Projectcard ({ project }) {
     align-items: center;
     border-bottom: 1px solid ${globalStyles.boldTextBlack};
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       width: 80%;
       margin: 0px;
       text-align: left;
@@ -66,7 +68,7 @@ export default function Projectcard ({ project }) {
     margin-right: 10px;
     font-family: 'Yu Gothic';
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       font-size: 1.8rem;
     }
   `;
@@ -77,7 +79,7 @@ export default function Projectcard ({ project }) {
     text-align: justify;
     margin: 6px 0px;
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       font-size: 1.2rem;
       width: 80%;
       margin: 10px;
@@ -95,7 +97,7 @@ export default function Projectcard ({ project }) {
     padding-bottom: 5px;
     color: ${globalStyles.niceBlueHeading};
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       font-size: 1.6rem;
       margin: 0px;
       padding: 5px;
@@ -108,7 +110,7 @@ export default function Projectcard ({ project }) {
     padding: 0px;
     text-align: center;
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       text-align: left;
     }
   `;
@@ -132,7 +134,7 @@ export default function Projectcard ({ project }) {
   const ProjectLinkIcon = styled.img`
     max-height: 1.2rem;
 
-    @media only screen and (min-width: ${globalStyles.mediumPx}px) {
+    @media only screen and (min-width: ${globalStyles.largePx}) {
       max-height: 2.2rem;
     }
   `;
@@ -152,43 +154,49 @@ export default function Projectcard ({ project }) {
   }
 
   return (
-    // <CardContainer>
-    //   <CardLeftCol>
-    //     <ProjectTitleArea>
-    //       <ProjectHeading>
-    //         {title}
-    //       </ProjectHeading>
-    //       <ProjectLinkContainer>
-    //         <a href={url} target="_blank" rel="noopener noreferrer">
-    //           <ProjectLinkIcon src={linkIcon} />
-    //         </a>
-    //       </ProjectLinkContainer>
-    //       <ProjectLinkContainer>
-    //         <a href={github} target="_blank" rel="noopener noreferrer">
-    //           <ProjectLinkIcon src={githubIcon} />
-    //         </a>
-    //       </ProjectLinkContainer>
-    //     </ProjectTitleArea>
-    //     <ProjectDescription>
-    //       {description}
-    //     </ProjectDescription>
-    //   </CardLeftCol>
-    //   <CardRightCol>
-    //     <ProjectImage
-    //     data-src={featureImage}
-    //     />
-    //     <TechnologyListHeading>
-    //       Key Technologies
-    //     </TechnologyListHeading>
-    //     <TechnologyList>
-    //       {technologyListItems}
-    //     </TechnologyList>
-    //   </CardRightCol>
-    // </CardContainer>
-    <Div>
-      Hello
-    </Div>
-  )
+    <div className="CardContainer">
+      <div className="CardLeftCol">
+        <div className="ProjectTitleArea">
+          <div className="project-card__title-container">
+            <h2 className="ProjectHeading">
+              {title}
+            </h2>
+            <div className="ProjectLinkContainer">
+              <a href={url} target="_blank" rel="noopener noreferrer">
+                <img
+                className="ProjectLinkIcon"
+                data-src={linkIcon}
+                alt="link icon"/>
+              </a>
+            </div>
+            <div className="ProjectLinkContainer">
+              <a href={github} target="_blank" rel="noopener noreferrer">
+                <img
+                className="ProjectLinkIcon"
+                data-src={githubIcon}
+                alt="github icon"/>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p className="ProjectDescription">
+          {description}
+        </p>
+      </div>
+      <div className="CardRightCol">
+        <img className="ProjectImage"
+        data-src={featureImage}
+        alt="project screenshot"
+        />
+        {/* <h3 className="TechnologyListHeading">
+          Key Technologies
+        </h3>
+        <div className="TechnologyList">
+          {technologyListItems}
+        </div> */}
+      </div>
+    </div>
+  );
 
 }
 

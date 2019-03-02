@@ -4,7 +4,14 @@ export default {
   projects: [
     {
       title: 'Newy Ship Guide',
-      description: 'Commodo cillum pariatur aute labore tempor dolore Lorem aliqua. Aliqua aliqua nisi duis laboris voluptate sunt mollit magna sint. Laborum id amet incididunt sint Lorem fugiat ex in labore reprehenderit labore enim. Et ea aliquip ipsum elit sint magna aute ullamco irure commodo id eu.',
+      description: 'The Port of Newcastle is a shipping hot spot, with many ships coming and going everyday. '
+      + ' A lot of people love to know about the ships and when they can spot one. '
+      + 'Unfortunately the only way to find out was a fairly unfriendly webpage. '
+      + 'So I developed a much nicer site using React (have a look for yourself). '
+      + 'The site has a basic back end (running on AWS EC2) which is running a bash script to regularly source the '
+      + 'latest information from the old site. The info is then displayed nicely on the front end. '
+      + 'The site is served from an S3 bucket for cheap, yet highly available hosting. '
+      + 'The site is responsive. ',
       technologies: [
         'React',
         'EC2',
@@ -17,10 +24,18 @@ export default {
     },
     {
       title: 'The Worm',
-      description: 'Culpa duis pariatur ullamco dolor officia. Deserunt esse culpa elit id culpa excepteur consectetur cupidatat. Commodo mollit sit eu quis. Duis et laborum laborum sunt aliquip. Consectetur qui amet cupidatat est quis aute excepteur exercitation cillum laborum officia. In irure ad sit culpa non enim quis laboris anim.',
+      description: 'Currently in development. '
+      + 'Inspired by "the worm" that sometimes makes appearances (particularly during political debates) on TV, '
+      + 'this project aims to bring it to anyone, anywhere. Have you ever wondered what others are thinking of a presentation? '
+      + '(maybe even your own), what about whether certain demographics like what is being said? This project aims to reveal '
+      + 'all that and more. The web app is being built with an Angular front end and .Net Core on the back end. MySQL '
+      + '(via Entity Framework Core) is in use as the database. The SignalR websocket library is used to provide real-time feedback. '
+      + 'The first (beta) release of the app is tentatively planned around april.'
+      ,
       technologies: [
         'Angular',
         'ASP.Net Core',
+        'SignalR',
       ],
       featureImage: '',
       status: 'in development',
@@ -29,7 +44,10 @@ export default {
     },
     {
       title: 'Dating Site',
-      description: 'Tempor duis ullamco ex et enim Lorem dolor excepteur mollit officia aliqua dolor non aliquip. Mollit fugiat ea magna minim laboris eu. Duis do Lorem aliqua in.',
+      description: 'Developed as part of the online course "Build an app with ASPNET Core and Angular from scratch". '
+      + 'A fully functioning dating site built using Angular and .Net Core. '
+      + 'Includes user authentication and messaging system. '
+      ,
       technologies: [
         'Angular',
         'ASP.Net Core',
@@ -38,6 +56,20 @@ export default {
       status: 'Complete',
       url: '',
       github: '',
-    }
+    },
+    {
+      title: 'Smart Home Automation',
+      description: 'Developed a prototype smart home system as a team as part of a university course. I was responsible for the development of the software running on Arduinos, A mobile app, backend, and the interfacing of the Arduinos with the App via the backend. The principle method of communication was websockets',
+      technologies: [
+        'Unity',
+        'Websockets',
+        'EC2',
+        'C and Python on Arduino Yun'
+      ],
+      featureImage: '',
+      status: 'Complete',
+      url: '',
+      github: '',
+    },
   ],
 };
