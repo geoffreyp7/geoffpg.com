@@ -1,4 +1,6 @@
-import newyShipGuideFeatureImage from '../assets/project-gifs/nsg.JPG'
+import newyShipGuideFeatureImage from '../assets/project-gifs/nsg.png';
+import datingSiteFeatureImage from '../assets/project-gifs/ads.png';
+import smartHomeAutomationImage from '../assets/project-gifs/sha.png';
 
 export default {
   projects: [
@@ -52,10 +54,10 @@ export default {
         'Angular',
         'ASP.Net Core',
       ],
-      featureImage: '',
+      featureImage: datingSiteFeatureImage,
       status: 'Complete',
       url: '',
-      github: '',
+      github: 'https://github.com/geoffreyp7/ASPNET_Core_Course_DatingApp',
     },
     {
       title: 'Smart Home Automation',
@@ -66,7 +68,7 @@ export default {
         'EC2',
         'C and Python on Arduino Yun'
       ],
-      featureImage: '',
+      featureImage: smartHomeAutomationImage,
       status: 'Complete',
       url: '',
       github: '',

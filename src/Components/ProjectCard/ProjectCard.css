@@ -97,6 +97,13 @@
 
     .CardLeftCol {
         flex-basis: 50%;
+        padding-right: 90px;
+    }
+
+    .project-card__left-col--main-col {
+        flex-basis: 51%;
+        margin: auto;
+        padding: none;
     }
 
     .CardRightCol {
@@ -104,7 +111,7 @@
     }
 
     .ProjectTitleArea {
-        width: 90%;
+        /* width: 90%; */
         margin: 0px;
         text-align: left;
         padding-bottom: 10px;
@@ -116,7 +123,7 @@
 
     .ProjectDescription {
         font-size: 1.2rem;
-        width: 80%;
+        /* width: 80%; */
         margin: 10px;
     }
 
@@ -143,16 +150,8 @@
         padding: 50px 80px;
     }
 
-    .CardLeftCol {
-        flex-basis: 50%;
-    }
-
-    .CardRightCol {
-        flex-basis: 50%;
-    }
-
     .ProjectTitleArea {
-        width: 80%;
+        /* width: 80%; */
         margin: 0px;
         text-align: left;
         padding-bottom: 10px;
@@ -164,7 +163,7 @@
 
     .ProjectDescription {
         font-size: 1.2rem;
-        width: 80%;
+        /* width: 80%; */
         margin: 10px;
     }
 

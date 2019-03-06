@@ -12,8 +12,8 @@ export default function AboutSection () {
     background-color: #F6F5F4;
     padding: 10px 20px;
     z-index: -5;
-    height: 100vh;
-    overflow: scroll;
+    height: 100%;
+    overflow-y: scroll;
     
     @media only screen and (min-width: ${globalStyles.mediumPx}) {
       padding: 80px 120px;
@@ -51,6 +51,7 @@ export default function AboutSection () {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
+    height: 100%;
 
     @media only screen and (min-width: ${globalStyles.mediumPx}) {
       margin-top: 80px;

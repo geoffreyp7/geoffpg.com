@@ -153,30 +153,56 @@ export default function Projectcard ({ project }) {
     )
   }
 
+  let githubLink = null;
+  if (github) {
+    githubLink = (
+      <div className="ProjectLinkContainer">
+        <a href={github} target="_blank" rel="noopener noreferrer">
+          <img
+          className="ProjectLinkIcon"
+          data-src={githubIcon}
+          alt="github icon"/>
+        </a>
+      </div>
+    );
+  }
+
+  let webLink = null;
+  if (url) {
+    webLink = (
+      <div className="ProjectLinkContainer">
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          <img
+          className="ProjectLinkIcon"
+          data-src={linkIcon}
+          alt="link icon"/>
+        </a>
+      </div>
+    );
+  }
+
+  let projectImg = null;
+  let leftColClass = 'project-card__left-col--main-col';;
+  if (featureImage) {
+    projectImg = (
+      <img className="ProjectImage"
+      data-src={featureImage}
+      alt="project screenshot"
+      />
+    );
+    leftColClass = '';
+  }
+
   return (
     <div className="CardContainer">
-      <div className="CardLeftCol">
+      <div className={`CardLeftCol ${leftColClass}`}>
         <div className="ProjectTitleArea">
           <div className="project-card__title-container">
             <h2 className="ProjectHeading">
               {title}
             </h2>
-            <div className="ProjectLinkContainer">
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                <img
-                className="ProjectLinkIcon"
-                data-src={linkIcon}
-                alt="link icon"/>
-              </a>
-            </div>
-            <div className="ProjectLinkContainer">
-              <a href={github} target="_blank" rel="noopener noreferrer">
-                <img
-                className="ProjectLinkIcon"
-                data-src={githubIcon}
-                alt="github icon"/>
-              </a>
-            </div>
+            {webLink}
+            {githubLink}
           </div>
         </div>
         <p className="ProjectDescription">
@@ -184,10 +210,7 @@ export default function Projectcard ({ project }) {
         </p>
       </div>
       <div className="CardRightCol">
-        <img className="ProjectImage"
-        data-src={featureImage}
-        alt="project screenshot"
-        />
+        {projectImg}
         {/* <h3 className="TechnologyListHeading">
           Key Technologies
         </h3>

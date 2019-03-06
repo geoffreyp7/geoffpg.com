@@ -40,13 +40,13 @@ export default function ProjectSection () {
         // position: 'absolute',
         backgroundColor: '#F6F5F4',
         // height: '100vh',
-        // top: '80px',
+        // top: '300px',
         zIndex: '-100'
         }}>
         <ReactFullpage
           navigation
           debug
-          responsiveHeight='550'
+          responsiveHeight='650'
           bigSectionsDestination='top'
         //   sectionsColor={['#2232a2', '#378265', '#764565']}
           pluginWrapper = {pluginWrapper}
